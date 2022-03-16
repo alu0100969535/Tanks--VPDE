@@ -18,8 +18,11 @@ public class GameManager : MonoBehaviour
     private WaitForSeconds m_StartWait;     
     private WaitForSeconds m_EndWait;       
     private TankManager m_RoundWinner;
-    private TankManager m_GameWinner;       
+    private TankManager m_GameWinner;
 
+    private void Awake() {
+        SetSystemSettings();
+    }
 
     private void Start()
     {
@@ -30,6 +33,10 @@ public class GameManager : MonoBehaviour
         SetCameraTargets();
 
         StartCoroutine(GameLoop());
+    }
+
+    private void SetSystemSettings() {
+        Screen.orientation = ScreenOrientation.Landscape;
     }
 
 
