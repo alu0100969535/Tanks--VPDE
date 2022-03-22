@@ -41,7 +41,9 @@ public class ShellExplosion : MonoBehaviour
         }
 
         m_ExplosionParticles.transform.parent = null;
-        
+
+        Vibrate();
+
         m_ExplosionParticles.Play();
 
         m_ExplosionAudio.Play();
@@ -49,6 +51,10 @@ public class ShellExplosion : MonoBehaviour
         Destroy(m_ExplosionParticles.gameObject, m_ExplosionParticles.main.duration);
 
         Destroy(gameObject);
+    }
+
+    private void Vibrate() {
+        Handheld.Vibrate();
     }
 
 
